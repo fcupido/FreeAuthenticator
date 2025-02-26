@@ -60,7 +60,6 @@ def update_otps():
     now = time.time()
     next_update = (30 - (now % 30)) * 1000
     root.after(int(next_update), update_otps)
-    update_timer()
 
 def update_timer():
     now = time.time()
@@ -92,6 +91,7 @@ def create_gui(secret_keys):
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
 
+    update_timer()
     update_otps()
     root.mainloop()
 
